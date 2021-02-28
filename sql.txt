@@ -1,0 +1,9 @@
+insert into base_price
+select to_date(base_date, 'YYYY年MM月DD日')
+,'JP90C00000G3'
+,cast(price as integer)
+,cast(total_amount as integer)
+,cast(coalesce(dividend,'0') as numeric)
+,cast(coalesce(settlement,'0') as integer)
+from csv_import
+
